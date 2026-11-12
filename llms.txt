@@ -1,0 +1,40 @@
+# Schero D.
+
+> Schero D. (GitHub: Schero94) is a project manager, AI expert, software developer, sysadmin and product developer in Berlin. His public work includes Slipstream (local LLMs on a Mac by streaming Mixture-of-Experts weights from the SSD), CloudDev AI (a self-hosted AI coding workspace on Railway) and eight Strapi 5 plugins.
+
+This is a private, non-commercial project page. Facts on this site come from public GitHub repositories and the npm registry. There is no contact form and no public e-mail address; the work is on GitHub.
+
+## What he does
+
+- Project management: I run releases through written gates. Each gate names its check and the evidence it needs, and a release waits until that evidence is recorded. Evidence: [Magic Link release gates](https://github.com/Schero94/strapi-plugin-magic-link-v5/blob/main/GATES.md), [Session Manager gates](https://github.com/Schero94/Magic-Sessionmanager/blob/main/GATES.md), [CloudDev AI acceptance gates](https://github.com/Schero94/clouddev-ai-sovereign-workspace/blob/main/GATES.md), [MessageGate acceptance records](https://github.com/Schero94/Magic-MessageGate/tree/main/docs/acceptance)
+- AI: Local models, coding agents and documentation that machines can read. Slipstream runs Mixture-of-Experts models larger than a Mac's RAM; CloudDev AI routes Codex and Claude Code through OmniRoute. Evidence: [Slipstream, llama.cpp fork](https://github.com/Schero94/slipstream), [CloudDev AI workspace](https://github.com/Schero94/clouddev-ai-sovereign-workspace), [AGENTS.md for coding agents](https://github.com/Schero94/Magic-MessageGate/blob/main/AGENTS.md), [llms.txt of plugin-io](https://strapi-community.github.io/plugin-io/llms.txt)
+- Software development: Node.js and React for eight Strapi 5 plugins and a block editor, plus the macOS control app of Slipstream. Frontends with Nuxt, Vue or Webflow when a project needs one. Evidence: [Eight Strapi 5 plugins](https://schero94.github.io/plugins/), [Magic Editor X](https://github.com/Schero94/Magic-Editor-X), [Slipstream app](https://github.com/Schero94/slipstream)
+- Sysadmin and DevOps: Systems that stay correct with more than one process, and pipelines that release on their own: semantic-release, npm provenance and Dependabot with checked auto-merge. Evidence: [Note: several Strapi instances](https://schero94.github.io/notes/strapi-multi-instance-plugins/), [Release workflow of Magic Mail](https://github.com/Schero94/Magic-Mail/blob/main/.github/workflows/release.yml), [MessageGate cluster test record](https://github.com/Schero94/Magic-MessageGate/blob/main/docs/acceptance/2026-11-11-cluster.md), [CloudDev AI Railway stack](https://github.com/Schero94/clouddev-ai-sovereign-workspace)
+- Product development: From an idea to something people install: scope, interface, docs site and release. MessageGate went from concept to npm with its own docs; Magic Editor X was rebuilt as a free MIT plugin with a security audit and collaboration across several instances. Evidence: [Magic MessageGate](https://schero94.github.io/plugins/magic-messagegate/), [Magic Editor X security audit](https://github.com/Schero94/Magic-Editor-X/blob/main/docs/security-audit-2.0.md), [Docs site of Magic Mail](https://schero94.github.io/Magic-Mail/)
+
+## Strapi 5 plugins
+
+- [Magic Link](https://schero94.github.io/plugins/magic-link/): Magic Link is a Strapi 5 plugin for passwordless login. npm: `strapi-plugin-magic-link-v5` 7.1.0, Strapi ^5.24.0. Docs: https://schero94.github.io/strapi-plugin-magic-link-v5/
+- [Magic Mail](https://schero94.github.io/plugins/magic-mail/): Magic Mail is a Strapi 5 plugin that sends every Strapi e-mail through the right account. npm: `strapi-plugin-magic-mail` 4.5.0, Strapi ^5.57.0. Docs: https://schero94.github.io/Magic-Mail/
+- [Magic Session Manager](https://schero94.github.io/plugins/magic-sessionmanager/): Magic Session Manager is a Strapi 5 plugin that records every sign-in through Users & Permissions as a session. npm: `strapi-plugin-magic-sessionmanager` 4.13.0, Strapi ^5.0.0. Docs: https://schero94.github.io/Magic-Sessionmanager/
+- [Magic Mark](https://schero94.github.io/plugins/magic-mark/): Magic Mark is a Strapi 5 plugin that saves Content Manager list views as bookmarks. npm: `strapi-plugin-magic-mark` 4.0.0, Strapi ^5.57.0. Docs: https://schero94.github.io/Magicmark/
+- [Auto UUID](https://schero94.github.io/plugins/auto-uuid/): Auto UUID is a Strapi 5 custom field that generates UUID v4 or v7 values on the server. npm: `strapi-auto-uuid-v5` 2.1.1, Strapi ^5.24.0. Docs: https://schero94.github.io/strapi-auto-uuid/
+- [Magic MessageGate](https://schero94.github.io/plugins/magic-messagegate/): Magic MessageGate is a Strapi 5 plugin that sends template messages over WhatsApp, Telegram and SMS. npm: `strapi-plugin-magic-messagegate` 1.1.0, Strapi ^5.38.0. Docs: https://schero94.github.io/Magic-MessageGate/ (llms.txt: https://schero94.github.io/Magic-MessageGate/llms.txt)
+- [plugin-io](https://schero94.github.io/plugins/plugin-io/): @strapi-community/plugin-io attaches a Socket.IO server to Strapi 5 and sends an event whenever a watched document is created, updated, published, unpublished, has its draft discarded or is deleted. npm: `@strapi-community/plugin-io` 6.0.0, Strapi ^5.38.0. Docs: https://strapi-community.github.io/plugin-io/ (llms.txt: https://strapi-community.github.io/plugin-io/llms.txt)
+- [Magic Editor X](https://schero94.github.io/plugins/magic-editor-x/): Magic Editor X is a block editor for Strapi 5: an Editor.js custom field with Media Library uploads, custom blocks, version history, live collaboration across several servers and an optional AI assistant that uses your own provider. npm: `magic-editor-x` 2.4.0, Strapi ^5.38.0. Docs: https://schero94.github.io/Magic-Editor-X/ (llms.txt: https://schero94.github.io/Magic-Editor-X/llms.txt)
+
+## Other work
+
+- [Slipstream](https://schero94.github.io/slipstream/): Slipstream is a macOS app built on a fork of llama.cpp that streams Mixture-of-Experts expert weights from the SSD instead of loading the whole model into memory. A 16 to 36 GB Apple Silicon Mac can run 35B to 480B MoE coding models and serve them through an OpenAI-compatible API on 127.0.0.1:8080.
+- [CloudDev AI](https://schero94.github.io/clouddev-ai-sovereign-workspace/): CloudDev AI gives one developer a persistent workspace on Railway: browser VS Code, VS Code Remote-SSH and CloudCLI for the phone share one project tree, next to Forgejo, PostgreSQL and OmniRoute, which routes the Codex and Claude Code CLIs to model providers. 17 of 24 release gates are complete; the Railway Marketplace release is not ready yet.
+
+## Notes
+
+- [Running Strapi 5 plugins on several instances](https://schero94.github.io/notes/strapi-multi-instance-plugins/): How Strapi 5 plugins stay correct on Railway replicas and pm2 cluster workers: shared state in the database, conditional updates, locks, leases, outbox claims, secrets, proxies and first deploys.
+
+## Optional
+
+- [Full text for language models](https://schero94.github.io/llms-full.txt)
+- [German version of the site](https://schero94.github.io/de/)
+- [GitHub profile](https://github.com/Schero94)
+- [npm profile](https://www.npmjs.com/~schero94)

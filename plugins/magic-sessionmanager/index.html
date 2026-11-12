@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<title>Magic Session Manager: see and end user sessions in Strapi 5 | Schero D.</title>
+<meta name="description" content="Magic Session Manager is a free Strapi 5 plugin that tracks Users &amp; Permissions sign-ins, ends sessions remotely, blocks users, locks out failed logins and adds optional GeoIP checks.">
+<meta name="author" content="Schero D.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://schero94.github.io/plugins/magic-sessionmanager/">
+<link rel="alternate" hreflang="en" href="https://schero94.github.io/plugins/magic-sessionmanager/">
+<link rel="alternate" hreflang="de" href="https://schero94.github.io/de/plugins/magic-sessionmanager/">
+<link rel="alternate" hreflang="x-default" href="https://schero94.github.io/plugins/magic-sessionmanager/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Schero D.">
+<meta property="og:title" content="Magic Session Manager: see and end user sessions in Strapi 5 | Schero D.">
+<meta property="og:description" content="Magic Session Manager is a free Strapi 5 plugin that tracks Users &amp; Permissions sign-ins, ends sessions remotely, blocks users, locks out failed logins and adds optional GeoIP checks.">
+<meta property="og:url" content="https://schero94.github.io/plugins/magic-sessionmanager/">
+<meta property="og:image" content="https://schero94.github.io/og/en-plugin-magic-sessionmanager.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Magic Session Manager: see and end user sessions in Strapi 5">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Magic Session Manager: see and end user sessions in Strapi 5 | Schero D.">
+<meta name="twitter:description" content="Magic Session Manager is a free Strapi 5 plugin that tracks Users &amp; Permissions sign-ins, ends sessions remotely, blocks users, locks out failed logins and adds optional GeoIP checks.">
+<meta name="twitter:image" content="https://schero94.github.io/og/en-plugin-magic-sessionmanager.png">
+<meta name="twitter:image:alt" content="Magic Session Manager: see and end user sessions in Strapi 5">
+<meta name="theme-color" content="#161c1a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ecebe4" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/BricolageGrotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v=19l0cjs">
+<script src="/js/theme.js?v=19l0cjs"></script>
+<script src="/js/site.js?v=19l0cjs" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://schero94.github.io/#person","name":"Schero D.","alternateName":"Schero94","url":"https://schero94.github.io/","jobTitle":["Project manager","AI expert","Software developer","Sysadmin","Product developer"],"description":"Project manager, AI expert, Software developer, Sysadmin, Product developer in Berlin.","address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"sameAs":["https://github.com/Schero94","https://www.npmjs.com/~schero94"],"knowsAbout":["Project management","Product development","Artificial intelligence","Large language models","AI coding agents","Software engineering","Node.js","TypeScript","React","Strapi","Nuxt","Vue.js","Webflow","DevOps","System administration","PostgreSQL","CI/CD"]},{"@type":"WebSite","@id":"https://schero94.github.io/#website","url":"https://schero94.github.io/","name":"Schero D.","inLanguage":["en","de"],"publisher":{"@id":"https://schero94.github.io/#person"}},{"@type":"SoftwareApplication","@id":"https://schero94.github.io/plugins/magic-sessionmanager/#software","name":"Magic Session Manager","description":"Magic Session Manager is a Strapi 5 plugin that records every sign-in through Users & Permissions as a session. Admins see who is online, end single sessions or all sessions of a user, block accounts and review sign-in history. Your app gets logout routes, a list of the user's own devices, failed-login lockout and optional country rules.","url":"https://schero94.github.io/plugins/magic-sessionmanager/","applicationCategory":"DeveloperApplication","applicationSubCategory":"Strapi 5 plugin","operatingSystem":"Cross-platform, Node.js ^22.22.2 || >=24.15.0","softwareRequirements":"@strapi/strapi ^5.0.0","softwareVersion":"4.13.0","dateModified":"2026-11-12T06:58:52.644Z","downloadUrl":"https://www.npmjs.com/package/strapi-plugin-magic-sessionmanager","installUrl":"https://www.npmjs.com/package/strapi-plugin-magic-sessionmanager","license":"https://github.com/Schero94/Magic-Sessionmanager/blob/main/LICENSE","sameAs":["https://github.com/Schero94/Magic-Sessionmanager","https://schero94.github.io/Magic-Sessionmanager/","https://www.npmjs.com/package/strapi-plugin-magic-sessionmanager"],"author":{"@id":"https://schero94.github.io/#person"},"maintainer":{"@id":"https://schero94.github.io/#person"},"inLanguage":"en","image":"https://schero94.github.io/icons/sessionmanager.svg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"SoftwareSourceCode","@id":"https://schero94.github.io/plugins/magic-sessionmanager/#source","name":"Magic Session Manager","codeRepository":"https://github.com/Schero94/Magic-Sessionmanager","programmingLanguage":"JavaScript","runtimePlatform":"Node.js","license":"https://github.com/Schero94/Magic-Sessionmanager/blob/main/LICENSE","targetProduct":{"@id":"https://schero94.github.io/plugins/magic-sessionmanager/#software"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://schero94.github.io/"},{"@type":"ListItem","position":2,"name":"Plugins","item":"https://schero94.github.io/plugins/"},{"@type":"ListItem","position":3,"name":"Magic Session Manager","item":"https://schero94.github.io/plugins/magic-sessionmanager/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it manage Strapi admin accounts?","acceptedAnswer":{"@type":"Answer","text":"No. It manages end users of Users & Permissions. Strapi administrator sessions are out of scope."}},{"@type":"Question","name":"Does it work with jwtManagement: 'refresh'?","acceptedAnswer":{"@type":"Answer","text":"Yes. Strapi issues, rotates and revokes its own sessions; the plugin adds device, IP address, location and history, and ends the native session when you end it in the admin."}},{"@type":"Question","name":"Can I run it on Railway with several replicas or with pm2 in cluster mode?","acceptedAnswer":{"@type":"Answer","text":"Yes, with PostgreSQL or MySQL shared by all processes. No sticky sessions or Redis are needed."}},{"@type":"Question","name":"Does it send my users' IP addresses anywhere?","acceptedAnswer":{"@type":"Answer","text":"Only if the location lookup uses ipapi.co. With a local MaxMind database, or with lookup disabled, IP addresses stay on your server."}}]}]}</script>
+</head>
+<body class="plugin-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar" data-reveal-skip>
+  <a class="wordmark" href="/" aria-label="Schero D., Home">Schero D.</a>
+  <nav class="nav" id="site-nav" aria-label="Main">
+    <ul>
+      <li><a href="/#what">What I do</a></li>
+      <li><a href="/plugins/" aria-current="page">Plugins</a></li>
+      <li><a href="/notes/">Notes</a></li>
+      <li><a href="https://github.com/Schero94" rel="me">GitHub</a></li>
+      <li class="nav-lang"><a href="/de/plugins/magic-sessionmanager/" hreflang="de" lang="de"><span aria-hidden="true">DE</span><span class="vh">Deutsch</span><span class="nav-lang-long" aria-hidden="true">Deutsch</span></a></li>
+    </ul>
+  </nav>
+  <div class="bar-tools">
+    <button type="button" class="theme-toggle" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/></svg></button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close" hidden><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+  </div>
+</header>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/plugins/">Plugins</a></li><li><span aria-current="page">Magic Session Manager</span></li></ol></nav>
+<section class="p-hero" aria-labelledby="p-title">
+  <div class="p-head">
+    <h1 id="p-title" class="display-sm">Magic Session Manager</h1>
+    <p class="lead">Magic Session Manager is a Strapi 5 plugin that records every sign-in through Users &amp; Permissions as a session. Admins see who is online, end single sessions or all sessions of a user, block accounts and review sign-in history. Your app gets logout routes, a list of the user's own devices, failed-login lockout and optional country rules.</p>
+    
+    
+    <div class="install"><p class="small muted" id="install-label">Install</p><div class="code-row"><pre aria-labelledby="install-label"><code>npm install strapi-plugin-magic-sessionmanager</code></pre><button type="button" class="copy-btn" data-copy="npm install strapi-plugin-magic-sessionmanager" data-done="Copied">Copy</button></div></div>
+  </div>
+  <div class="p-side">
+    <img src="/icons/sessionmanager.svg" alt="Magic Session Manager icon" width="160" height="160" class="icon-tile" loading="lazy" decoding="async">
+    <dl class="p-facts"><div><dt>Version</dt><dd>v4.13.0</dd></div><div><dt>Strapi</dt><dd>^5.0.0</dd></div><div><dt>Node.js</dt><dd>^22.22.2 || &gt;=24.15.0</dd></div><div><dt>License</dt><dd>MIT, free</dd></div><div><dt>Released</dt><dd><time datetime="2026-11-12">12 November 2026</time></dd></div></dl>
+    <p class="small muted">Version, release date and ranges are read from the npm registry at build time.</p>
+  </div>
+</section>
+<section class="p-shots" aria-label="Screenshots">
+  <div class="strip-wrap">
+  <div class="strip" tabindex="0" role="region" aria-label="Magic Session Manager: screenshots"><figure class="slide"><img src="/shots/magic-sessionmanager/dashboard.webp" alt="Sessions dashboard with Active, Idle and Ended counts and a table of sessions" width="1280" height="800" decoding="async"></figure><figure class="slide"><img src="/shots/magic-sessionmanager/dashboard-dark.webp" alt="Sessions dashboard in dark mode" width="1280" height="800" decoding="async"></figure><figure class="slide"><img src="/shots/magic-sessionmanager/dashboardsessionmodal.webp" alt="Session details with device, browser, IP address and location" width="1280" height="800" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/shots/magic-sessionmanager/analytics.webp" alt="Session analytics with devices and browsers" width="1280" height="800" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/shots/magic-sessionmanager/settings1.webp" alt="Session Manager configuration page" width="1280" height="800" loading="lazy" decoding="async"></figure></div>
+</div>
+  <p class="p-shots-ctl"><span class="strip-ctl"><button type="button" class="strip-btn" data-dir="-1" aria-label="Previous picture"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button><button type="button" class="strip-btn" data-dir="1" aria-label="Next picture"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button></span></p>
+</section>
+<section class="p-features" aria-labelledby="feat-title">
+  <h2 id="feat-title" class="h-sec">What it does</h2>
+  <ul class="feat-list"><li>A sessions dashboard with Active, Idle and Ended counts, search, filters, CSV and JSON export and a details dialog per session.</li><li>End one session or all sessions of a user, or block the user. An ended session is rejected on the next request with 401.</li><li>Content API routes for my sessions, the current session, log out, log out everywhere and log out other devices.</li><li>Temporary IP lockout after failed sign-ins, rate limits, optional rejection of VPN, proxy or low-score sign-ins, and country allow or block lists.</li><li>IP location from a local MaxMind GeoLite2 database, from ipapi.co, or turned off.</li><li>Works with jwtManagement: 'refresh' (Strapi's own sessions and refresh tokens) and with 'legacy-support'.</li></ul>
+</section>
+<section class="p-when" aria-label="Use it when">
+  <div><h2 class="h-sec">Use it when</h2><p>You need to see and end the sessions of your app's users, or stop password guessing before it reaches them.</p></div>
+  <div><h2 class="h-sec">Not for</h2><p>It does not manage Strapi administrator sessions.</p></div>
+  <div><h2 class="h-sec">What it needs</h2><p>Strapi 5 with Users &amp; Permissions. The homepage widget needs Strapi 5.13 or later. In production it needs a stable key for token encryption.</p></div>
+</section>
+<section class="faq" aria-labelledby="p-faq-title">
+  <h2 id="p-faq-title" class="h-sec">Questions</h2>
+  <div class="faq-text"><div class="qa"><h3>Does it manage Strapi admin accounts?</h3> <p>No. It manages end users of Users &amp; Permissions. Strapi administrator sessions are out of scope.</p></div><div class="qa"><h3>Does it work with jwtManagement: 'refresh'?</h3> <p>Yes. Strapi issues, rotates and revokes its own sessions; the plugin adds device, IP address, location and history, and ends the native session when you end it in the admin.</p></div><div class="qa"><h3>Can I run it on Railway with several replicas or with pm2 in cluster mode?</h3> <p>Yes, with PostgreSQL or MySQL shared by all processes. No sticky sessions or Redis are needed.</p></div><div class="qa"><h3>Does it send my users' IP addresses anywhere?</h3> <p>Only if the location lookup uses ipapi.co. With a local MaxMind database, or with lookup disabled, IP addresses stay on your server.</p></div></div>
+</section>
+<section class="p-docs" aria-labelledby="docs-title">
+  <h2 id="docs-title" class="h-sec">Full documentation</h2>
+  <ul class="doc-tiles"><li><a href="https://schero94.github.io/Magic-Sessionmanager/"><span>Documentation</span><span class="small muted">schero94.github.io/Magic-Sessionmanager/</span></a></li><li><a href="https://github.com/Schero94/Magic-Sessionmanager"><span>Source on GitHub</span><span class="small muted">github.com/Schero94/Magic-Sessionmanager</span></a></li><li><a href="https://www.npmjs.com/package/strapi-plugin-magic-sessionmanager"><span>Package on npm</span><span class="small muted">www.npmjs.com/package/strapi-plugin-magic-sessionmanager</span></a></li></ul>
+</section>
+<section class="p-others" aria-labelledby="others-title">
+  <h2 id="others-title" class="h-sec">Other plugins</h2>
+  <ul class="other-tiles"><li><a href="/plugins/magic-link/"><img src="/icons/magic-link.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Link</span><span class="small muted">Passwordless login</span></a></li><li><a href="/plugins/magic-mail/"><img src="/icons/magic-mail.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Mail</span><span class="small muted">E-mail routing</span></a></li><li><a href="/plugins/magic-mark/"><img src="/icons/magic-mark.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Mark</span><span class="small muted">Content Manager bookmarks</span></a></li><li><a href="/plugins/auto-uuid/"><img src="/icons/auto-uuid.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Auto UUID</span><span class="small muted">UUID custom field</span></a></li><li><a href="/plugins/magic-messagegate/"><img src="/icons/messagegate.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic MessageGate</span><span class="small muted">WhatsApp, Telegram and SMS</span></a></li><li><a href="/plugins/plugin-io/"><img src="/icons/plugin-io.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>plugin-io</span><span class="small muted">Real-time events</span></a></li><li><a href="/plugins/magic-editor-x/"><img src="/icons/magic-editor-x.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Editor X</span><span class="small muted">Block editor</span></a></li></ul>
+</section>
+</main>
+<footer class="foot" data-reveal-skip>
+  <div class="tile t-statement"><p class="foot-statement">Software, AI and product work from Berlin.</p><p class="small">© 2026 Schero D. · <a href="/privacy/">Privacy</a><br>Last updated: <time datetime="2026-11-12">12 November 2026</time></p></div>
+  <nav class="tile t-nav" aria-label="Pages"><ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/plugins/">Plugins</a></li>
+    <li><a href="/notes/">Notes</a></li>
+    <li><a href="/llms.txt">llms.txt</a></li>
+  </ul></nav>
+  <div class="tile t-time"><p>Berlin</p><p class="small">Local time <time class="local-time" data-tz="Europe/Berlin" data-lang="en">CET</time></p></div>
+  <div class="tile t-gh"><a class="tile-link" href="https://github.com/Schero94" rel="me"><span>GitHub</span><span class="small muted">Schero94</span></a><a class="small" href="https://www.npmjs.com/~schero94" rel="me">npm ~schero94</a></div>
+  <div class="tile t-word" aria-hidden="true"><span>Schero D.</span></div>
+  <a class="tile t-invite" href="https://github.com/Schero94" rel="me"><span>All projects on GitHub</span><svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><path d="M10 38 38 10M16 10h22v22" fill="none" stroke="currentColor" stroke-width="4"/></svg></a>
+</footer>
+</body>
+</html>

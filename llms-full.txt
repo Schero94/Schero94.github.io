@@ -1,0 +1,439 @@
+# Schero D.: software, AI and product projects
+
+Source: https://schero94.github.io/ · Last built: 2026-11-12 · npm data fetched: 2026-11-12T21:24:24.315Z
+
+## Who
+
+I'm a project manager, software developer, sysadmin and product developer in Berlin, and this is my private project page. My public work covers local AI (Slipstream), a self-hosted AI workspace (CloudDev AI) and eight Strapi 5 plugins for login, e-mail, sessions, messaging, bookmarks, identifiers, real-time events and editing.
+
+Roles: Project manager, AI expert, Software developer, Sysadmin, Product developer.
+
+## What he does, with evidence
+
+### Project management
+
+I run releases through written gates. Each gate names its check and the evidence it needs, and a release waits until that evidence is recorded.
+
+- Magic Link release gates: https://github.com/Schero94/strapi-plugin-magic-link-v5/blob/main/GATES.md
+- Session Manager gates: https://github.com/Schero94/Magic-Sessionmanager/blob/main/GATES.md
+- CloudDev AI acceptance gates: https://github.com/Schero94/clouddev-ai-sovereign-workspace/blob/main/GATES.md
+- MessageGate acceptance records: https://github.com/Schero94/Magic-MessageGate/tree/main/docs/acceptance
+
+### AI
+
+Local models, coding agents and documentation that machines can read. Slipstream runs Mixture-of-Experts models larger than a Mac's RAM; CloudDev AI routes Codex and Claude Code through OmniRoute.
+
+- Slipstream, llama.cpp fork: https://github.com/Schero94/slipstream
+- CloudDev AI workspace: https://github.com/Schero94/clouddev-ai-sovereign-workspace
+- AGENTS.md for coding agents: https://github.com/Schero94/Magic-MessageGate/blob/main/AGENTS.md
+- llms.txt of plugin-io: https://strapi-community.github.io/plugin-io/llms.txt
+
+### Software development
+
+Node.js and React for eight Strapi 5 plugins and a block editor, plus the macOS control app of Slipstream. Frontends with Nuxt, Vue or Webflow when a project needs one.
+
+- Eight Strapi 5 plugins: https://schero94.github.io/plugins/
+- Magic Editor X: https://github.com/Schero94/Magic-Editor-X
+- Slipstream app: https://github.com/Schero94/slipstream
+
+### Sysadmin and DevOps
+
+Systems that stay correct with more than one process, and pipelines that release on their own: semantic-release, npm provenance and Dependabot with checked auto-merge.
+
+- Note: several Strapi instances: https://schero94.github.io/notes/strapi-multi-instance-plugins/
+- Release workflow of Magic Mail: https://github.com/Schero94/Magic-Mail/blob/main/.github/workflows/release.yml
+- MessageGate cluster test record: https://github.com/Schero94/Magic-MessageGate/blob/main/docs/acceptance/2026-11-11-cluster.md
+- CloudDev AI Railway stack: https://github.com/Schero94/clouddev-ai-sovereign-workspace
+
+### Product development
+
+From an idea to something people install: scope, interface, docs site and release. MessageGate went from concept to npm with its own docs; Magic Editor X was rebuilt as a free MIT plugin with a security audit and collaboration across several instances.
+
+- Magic MessageGate: https://schero94.github.io/plugins/magic-messagegate/
+- Magic Editor X security audit: https://github.com/Schero94/Magic-Editor-X/blob/main/docs/security-audit-2.0.md
+- Docs site of Magic Mail: https://schero94.github.io/Magic-Mail/
+
+Location: Berlin. GitHub: https://github.com/Schero94. npm: https://www.npmjs.com/~schero94. This is a private, non-commercial project page.
+
+## Plugins
+
+### Magic Link
+
+Magic Link is a Strapi 5 plugin for passwordless login. Your users type their e-mail address, click the link in their inbox and get a normal Users & Permissions session, the same kind /api/auth/local creates. When a link is not enough, you add a second factor: an e-mailed one-time code or an authenticator app (TOTP) with backup codes.
+
+- Page: https://schero94.github.io/plugins/magic-link/
+- Package: strapi-plugin-magic-link-v5 (latest 7.1.0, released 2026-11-07)
+- Install: npm install strapi-plugin-magic-link-v5
+- Strapi peer range: ^5.24.0; Node.js: >=22.0.0 <=26.x.x
+- License: MIT
+- Documentation: https://schero94.github.io/strapi-plugin-magic-link-v5/
+- Source: https://github.com/Schero94/strapi-plugin-magic-link-v5
+
+Features:
+- One API call sends the link. Your landing page exchanges the token for a JWT.
+- Optional second factors: an e-mail code after the click, TOTP as optional or required MFA, one-time backup codes, and TOTP-only login.
+- Links are stored hashed and expire. A single-use link is consumed atomically.
+- Rate limits per IP and per address, IP bans, and a JWT session list with revocation, also for refresh-token sessions.
+- Works with the Strapi e-mail plugin, Magic Mail, Email Designer 5 and a compatibility mode for strapi-plugin-passwordless.
+- Admin panel in English, German, French, Spanish and Portuguese, in light and dark mode.
+
+Needs: Users & Permissions, a configured Strapi e-mail provider (or Magic Mail) and two secrets of 32 or more characters: MAGIC_LINK_ENCRYPTION_KEY and MAGIC_LINK_OTP_PEPPER.
+Use it when: The end users of your app sign in through Users & Permissions and you want e-mail login without passwords, with or without MFA.
+Not for: It does not replace the Strapi admin login. It is e-mail only: WhatsApp and SMS delivery were removed in 6.0.0.
+
+Q: Does Magic Link replace the Strapi admin login?
+A: No. It signs in the users of your app (Users & Permissions accounts). The Strapi admin login stays as it is.
+
+Q: Do I need a frontend?
+A: For a good experience, yes: a form that calls send-link and a landing page that posts the token to /login. Any framework works, for example Next.js, Nuxt or SvelteKit.
+
+Q: Does it work with GraphQL?
+A: The login routes are REST. The JWT they return works for GraphQL like any Users & Permissions JWT, and revoked tokens are rejected there too.
+
+Q: Can I run several Strapi instances?
+A: Yes. All state lives in the database and is shared safely; the behaviour is tested with 8 processes on SQLite and PostgreSQL 16.
+
+### Magic Mail
+
+Magic Mail is a Strapi 5 plugin that sends every Strapi e-mail through the right account. It handles several SMTP and API accounts with routing rules, quotas, failover that never sends a mail twice, an outbox with retries, templates and delivery tracking. Your code keeps calling strapi.plugin('email').service('email').send(), and the Users & Permissions mails go through Magic Mail without changes.
+
+- Page: https://schero94.github.io/plugins/magic-mail/
+- Package: strapi-plugin-magic-mail (latest 4.5.0, released 2026-11-10)
+- Install: npm install strapi-plugin-magic-mail
+- Strapi peer range: ^5.57.0; Node.js: >=22.12.0 <=26.x.x
+- License: MIT
+- Documentation: https://schero94.github.io/Magic-Mail/
+- Source: https://github.com/Schero94/Magic-Mail
+
+Features:
+- Six providers: Gmail, Microsoft 365 and Yahoo with OAuth 2.0, any SMTP server with optional DKIM, SendGrid and Mailgun. Credentials are encrypted with AES-256-GCM and never reach the browser.
+- Routing rules by e-mail type, recipient, subject, template or a custom value, with a fallback account per rule.
+- Hourly and daily quotas per account. Failover tries the next account only when the error proves the provider did not take the mail.
+- An opt-in outbox with retries (after 1, 5 and 15 minutes by default) and idempotency keys.
+- Templates in a visual editor (Unlayer) or plain HTML and text, with Mustache variables, versions, import and export.
+- Signed SendGrid and Mailgun bounce and complaint webhooks, a delivery log, and open and click tracking with truncated IPs.
+
+Needs: Strapi 5.57.0 or newer with Users & Permissions. Outside development and test it needs an encryption key.
+Use it when: You send transactional mail from Strapi through more than one account or provider and need limits, failover or a delivery log.
+Not for: It sends e-mail only. Bounce webhooks exist for SendGrid and Mailgun, not for SMTP, Gmail, Microsoft 365 or Yahoo accounts.
+
+Q: Do I have to change my existing e-mail code?
+A: No. Magic Mail wraps the provider of @strapi/email at startup, so send(), sendTemplatedEmail(), the admin password reset and the Users & Permissions mails are routed through it.
+
+Q: Can a mail be delivered twice?
+A: Not because of Magic Mail's own retries. Failover only moves on when the provider provably did not take the mail, and the outbox never re-sends an uncertain mail on its own.
+
+Q: Do I need Redis or sticky sessions for several replicas?
+A: No. Quotas, rate limits, OAuth flows and the outbox are coordinated through the database. Redis is optional for the rate limiter.
+
+Q: Is there a license key or a usage limit?
+A: No. Magic Mail is MIT licensed with no license key and no usage limits.
+
+### Magic Session Manager
+
+Magic Session Manager is a Strapi 5 plugin that records every sign-in through Users & Permissions as a session. Admins see who is online, end single sessions or all sessions of a user, block accounts and review sign-in history. Your app gets logout routes, a list of the user's own devices, failed-login lockout and optional country rules.
+
+- Page: https://schero94.github.io/plugins/magic-sessionmanager/
+- Package: strapi-plugin-magic-sessionmanager (latest 4.13.0, released 2026-11-12)
+- Install: npm install strapi-plugin-magic-sessionmanager
+- Strapi peer range: ^5.0.0; Node.js: ^22.22.2 || >=24.15.0
+- License: MIT
+- Documentation: https://schero94.github.io/Magic-Sessionmanager/
+- Source: https://github.com/Schero94/Magic-Sessionmanager
+
+Features:
+- A sessions dashboard with Active, Idle and Ended counts, search, filters, CSV and JSON export and a details dialog per session.
+- End one session or all sessions of a user, or block the user. An ended session is rejected on the next request with 401.
+- Content API routes for my sessions, the current session, log out, log out everywhere and log out other devices.
+- Temporary IP lockout after failed sign-ins, rate limits, optional rejection of VPN, proxy or low-score sign-ins, and country allow or block lists.
+- IP location from a local MaxMind GeoLite2 database, from ipapi.co, or turned off.
+- Works with jwtManagement: 'refresh' (Strapi's own sessions and refresh tokens) and with 'legacy-support'.
+
+Needs: Strapi 5 with Users & Permissions. The homepage widget needs Strapi 5.13 or later. In production it needs a stable key for token encryption.
+Use it when: You need to see and end the sessions of your app's users, or stop password guessing before it reaches them.
+Not for: It does not manage Strapi administrator sessions.
+
+Q: Does it manage Strapi admin accounts?
+A: No. It manages end users of Users & Permissions. Strapi administrator sessions are out of scope.
+
+Q: Does it work with jwtManagement: 'refresh'?
+A: Yes. Strapi issues, rotates and revokes its own sessions; the plugin adds device, IP address, location and history, and ends the native session when you end it in the admin.
+
+Q: Can I run it on Railway with several replicas or with pm2 in cluster mode?
+A: Yes, with PostgreSQL or MySQL shared by all processes. No sticky sessions or Redis are needed.
+
+Q: Does it send my users' IP addresses anywhere?
+A: Only if the location lookup uses ipapi.co. With a local MaxMind database, or with lookup disabled, IP addresses stay on your server.
+
+### Magic Mark
+
+Magic Mark is a Strapi 5 plugin that saves Content Manager list views as bookmarks. A bookmark keeps the content type, filters, sort order, page size, search text and locale, and opens exactly that list again with one click. Bookmarks can be shared with roles or single admin users and pinned to the Strapi homepage.
+
+- Page: https://schero94.github.io/plugins/magic-mark/
+- Package: strapi-plugin-magic-mark (latest 4.0.0, released 2026-11-11)
+- Install: npm install strapi-plugin-magic-mark
+- Strapi peer range: ^5.57.0; Node.js: ^22.22.2 || >=24.15.0
+- License: MIT
+- Documentation: https://schero94.github.io/Magicmark/
+- Source: https://github.com/Schero94/Magicmark
+
+Features:
+- Save view in the list view toolbar keeps the list you are looking at.
+- A bookmark opens its list without a page reload, and old filters never mix in.
+- Share a bookmark privately, with roles and single admin users, or with all admins.
+- Pins per user, first in the toolbar and in a Pinned bookmarks widget on the homepage.
+- Advanced filters: any condition, is one of, is none of, is between, and fields of relations and non-repeatable components.
+- Six role permissions, checked on the server for every request. No outbound requests and no telemetry.
+
+Needs: Strapi 5.57.0 or newer.
+Use it when: Editors rebuild the same filtered lists every day, or keep long admin URLs in their browser bookmarks.
+Not for: It does not save the page number or the list columns. Columns stay a per-user Content Manager setting.
+
+Q: Is Magic Mark free?
+A: Yes. The 3.x license system is gone; every feature is available to everyone under the MIT license.
+
+Q: Can I see the private bookmarks of other admins?
+A: No, also not as Super Admin. Managers see public and shared bookmarks of everyone.
+
+Q: Does it work with a custom admin URL?
+A: Yes. Bookmarks store the path inside the admin, not the full URL.
+
+### Auto UUID
+
+Auto UUID is a Strapi 5 custom field that generates UUID v4 or v7 values on the server. No other document can reuse a value and nobody changes it by accident. Add the field in the Content-Type Builder and every new entry gets a value, whether it came from the admin, REST, GraphQL or the Document Service.
+
+- Page: https://schero94.github.io/plugins/auto-uuid/
+- Package: strapi-auto-uuid-v5 (latest 2.1.1, released 2026-11-07)
+- Install: npm install strapi-auto-uuid-v5
+- Strapi peer range: ^5.24.0; Node.js: >=22.12.0 <=26.x.x
+- License: MIT
+- Documentation: https://schero94.github.io/strapi-auto-uuid/
+- Source: https://github.com/Schero94/strapi-auto-uuid
+
+Features:
+- UUID v4 (random) or v7 (time-sortable), with an optional prefix such as usr_.
+- Generated on the server when an entry is created.
+- Uniqueness across documents, checked on every save in every locale and in draft and published versions. Compared case-insensitively per RFC 9562.
+- Locked by default; editing can be allowed per field.
+- A settings page with counts per content type, a check, repairs with preview and confirmation, and export and import of all UUIDs.
+- The Strapi 5 continuation of Cringe-Studio/strapi-auto-uuid, which supports Strapi 4 only.
+
+Needs: Strapi 5.24 or newer. SQLite, PostgreSQL and MySQL 8 or MariaDB.
+Use it when: You need a stable identifier per entry that the server generates and keeps unique.
+Not for: Strapi 4 projects. For those, use Cringe-Studio/strapi-auto-uuid.
+
+Q: Which UUID versions does it generate?
+A: UUID v4 (random) or v7 (time-sortable), chosen per field, with an optional prefix.
+
+Q: Does it work with several Strapi processes?
+A: Yes. The database is the only shared state, so Railway replicas and pm2 clusters on one database are safe.
+
+Q: Does it call external services?
+A: No. It makes no outbound network calls, has no telemetry and needs no license key.
+
+### Magic MessageGate
+
+Magic MessageGate is a Strapi 5 plugin that sends template messages over WhatsApp, Telegram and SMS. It picks the channel, fills in the variables, sends each message exactly once and follows it from sent to delivered to read. When WhatsApp cannot reach a number, it falls back to SMS, or to e-mail through Magic Mail. It only uses the official provider APIs, so there is no WhatsApp Web session that can get your number banned.
+
+- Page: https://schero94.github.io/plugins/magic-messagegate/
+- Package: strapi-plugin-magic-messagegate (latest 1.1.0, released 2026-11-11)
+- Install: npm install strapi-plugin-magic-messagegate
+- Strapi peer range: ^5.38.0; Node.js: ^22.21.0 || >=24.9.0 <=26.x.x
+- License: MIT
+- Documentation: https://schero94.github.io/Magic-MessageGate/
+- Source: https://github.com/Schero94/Magic-MessageGate
+- llms.txt: https://schero94.github.io/Magic-MessageGate/llms.txt
+
+Features:
+- WhatsApp through Meta's Cloud API, Telegram through the Bot API, SMS through seven.io or Twilio. Each provider is a small HTTPS client, no vendor SDKs.
+- Templates with variables and a live preview. WhatsApp templates are submitted to Meta from Strapi and their approval status updates by itself.
+- A durable outbox in your database: each message is sent once, also with several Strapi processes, and the same idempotencyKey never sends twice.
+- A timeline per message: queued, sent, delivered, read, or failed with a reason in plain language.
+- A fallback chain from WhatsApp to SMS to e-mail, and routing rules per template, tag or country.
+- Consent per channel, STOP keywords, and GDPR export and erasure per contact.
+
+Needs: Strapi 5.38 or newer, an encryption key and a public URL for provider webhooks. WhatsApp needs a Meta app.
+Use it when: Your Strapi app sends order, booking or account notifications to phones and needs delivery status and a fallback.
+Not for: Checking before the first send whether a number has WhatsApp, or connecting a personal WhatsApp number. The official API allows neither.
+
+Q: Can MessageGate check whether a number has WhatsApp before sending?
+A: No. Meta's Cloud API has no such check. MessageGate learns it from the first send and falls back to SMS.
+
+Q: Why is a message marked uncertain?
+A: The request reached the provider but no clear answer came back in time. Sending again could deliver it twice, so an admin decides whether to retry or mark it as sent.
+
+Q: Can I send free text on WhatsApp?
+A: Only within 24 hours after the contact last wrote to you. Outside that window, Meta requires an approved template.
+
+Q: Do I need Magic Mail?
+A: No. It is only used for the optional e-mail step of the fallback chain.
+
+### plugin-io
+
+@strapi-community/plugin-io attaches a Socket.IO server to Strapi 5 and sends an event whenever a watched document is created, updated, published, unpublished, has its draft discarded or is deleted. Each client receives only what its role or API token may read through the REST API, sanitized with the same Content API sanitizer Strapi uses.
+
+The plugin lives in the Strapi community organization on GitHub. ComfortablyCoding started it; I maintain it and publish its releases on npm.
+
+- Page: https://schero94.github.io/plugins/plugin-io/
+- Package: @strapi-community/plugin-io (latest 6.0.0, released 2026-11-07)
+- Install: npm install @strapi-community/plugin-io
+- Strapi peer range: ^5.38.0; Node.js: ^22.21.0 || >=24.9.0 <=26.x.x
+- License: MIT
+- Documentation: https://strapi-community.github.io/plugin-io/
+- Source: https://github.com/strapi-community/plugin-io
+- llms.txt: https://strapi-community.github.io/plugin-io/llms.txt
+
+Features:
+- Events for create, update, publish, unpublish, discard draft and delete, per watched content type.
+- Every client gets only what its role or API token may read, sanitized like the REST API.
+- Settings, Socket.IO in the admin with live monitoring, two homepage widgets and a live presence panel in the Content Manager.
+- Several processes act as one Socket.IO server with the Postgres adapter (LISTEN/NOTIFY) or the Redis adapter.
+- Users & Permissions is optional. It is needed for user JWTs and the Public role room.
+
+Needs: Strapi 5.38 or later and Node.js 22.21+ or 24.9+. For several processes: @socket.io/postgres-adapter with pg, or @socket.io/redis-adapter with ioredis.
+Use it when: Frontends need to react to content changes in Strapi without polling.
+Not for: Several processes without an adapter. Then events stay on the process that produced them, and the plugin warns at boot.
+
+Q: Which events does it send?
+A: An event when a watched document is created, updated, published, unpublished, has its draft discarded or is deleted, for example article:publish.
+
+Q: Who receives an event?
+A: Only clients whose role or API token may read that content through the REST API. Data is sanitized with Strapi's Content API sanitizer.
+
+Q: Does it work on Railway or with pm2 cluster mode?
+A: Yes, with the Postgres or Redis adapter and WebSocket-only transport, because Railway and pm2 have no sticky sessions.
+
+### Magic Editor X
+
+Magic Editor X is a block editor for Strapi 5: an Editor.js custom field with Media Library uploads, custom blocks, version history, live collaboration across several servers and an optional AI assistant that uses your own provider. It is free and open source under the MIT license, with no tiers, no license key and no usage limits.
+
+- Page: https://schero94.github.io/plugins/magic-editor-x/
+- Package: magic-editor-x (latest 2.4.0, released 2026-11-12)
+- Install: npm install magic-editor-x
+- Strapi peer range: ^5.38.0; Node.js: >=22.0.0 <=26.x.x
+- License: MIT
+- Documentation: https://schero94.github.io/Magic-Editor-X/
+- Source: https://github.com/Schero94/Magic-Editor-X
+- llms.txt: https://schero94.github.io/Magic-Editor-X/llms.txt
+
+Features:
+- A custom field, stored as JSON, for collection types, single types, components and dynamic zones, including localised fields and Draft & Publish.
+- Block tools for text, code with syntax highlighting, tables, images and files from the Media Library, embeds, link previews, buttons and raw HTML.
+- Custom blocks defined in Settings, either simple blocks with fields and an HTML template or embedded-entry blocks, with JSON import and export.
+- Version history per field with preview and restore, and automatic versions during live sessions.
+- Live collaboration with character-level merging and presence, across several Node processes behind a load balancer without sticky sessions or Redis.
+- An AI assistant that uses Anthropic, OpenAI or any OpenAI-compatible server with your own key; every value is normalised and sanitised on the server when it is saved.
+
+Needs: Strapi 5 and its Content-Type Builder. The AI assistant needs your own provider key; collaboration behind a proxy needs WebSocket upgrades and the same ADMIN_JWT_SECRET on every process.
+Use it when: Editors want block-based editing with structured JSON output, and several people edit the same entry at the same time.
+Not for: Projects that want HTML or Markdown stored directly in the field. The field stores Editor.js JSON, and your frontend renders the blocks.
+
+Q: Is Magic Editor X free?
+A: Yes. It is MIT licensed. Every feature is available in every installation, with nothing to activate, no tiers and no usage limits.
+
+Q: Does it call external services?
+A: Only for features that need it: link previews, images by URL and the AI assistant with the provider you configure.
+
+Q: Can several admins edit one field at the same time?
+A: Yes. Collaboration merges edits at character level and works with several Node processes on one database without sticky sessions.
+
+Q: What does it store?
+A: JSON blocks from Editor.js, not HTML. Your frontend renders the blocks.
+
+## Other work
+
+### Slipstream
+
+Slipstream is a macOS app built on a fork of llama.cpp that streams Mixture-of-Experts expert weights from the SSD instead of loading the whole model into memory. A 16 to 36 GB Apple Silicon Mac can run 35B to 480B MoE coding models and serve them through an OpenAI-compatible API on 127.0.0.1:8080.
+
+- Site: https://schero94.github.io/slipstream/
+- Source: https://github.com/Schero94/slipstream
+- Status: latest release v0.3.5
+
+### CloudDev AI
+
+CloudDev AI gives one developer a persistent workspace on Railway: browser VS Code, VS Code Remote-SSH and CloudCLI for the phone share one project tree, next to Forgejo, PostgreSQL and OmniRoute, which routes the Codex and Claude Code CLIs to model providers. 17 of 24 release gates are complete; the Railway Marketplace release is not ready yet.
+
+- Site: https://schero94.github.io/clouddev-ai-sovereign-workspace/
+- Source: https://github.com/Schero94/clouddev-ai-sovereign-workspace
+- Status: 17 of 24 release gates complete
+
+## Questions
+
+Q: Who is Schero D.?
+A: Schero D. is a project manager, AI expert, software developer, sysadmin and product developer in Berlin. This is his private project page. He publishes open-source work on GitHub as Schero94: Slipstream, CloudDev AI and eight Strapi 5 plugins.
+
+Q: Does he work with local LLMs and coding agents?
+A: Yes. Slipstream runs Mixture-of-Experts coding models larger than a Mac's RAM by streaming expert weights from the SSD. CloudDev AI is a self-hosted workspace that routes Codex and Claude Code through OmniRoute.
+
+Q: How do I add passwordless login to Strapi 5?
+A: Install Magic Link (strapi-plugin-magic-link-v5). Users enter their e-mail address, click the link and get a normal Users & Permissions session. An e-mail code or an authenticator app can be added as a second factor.
+
+Q: Can Strapi send e-mail through several SMTP accounts with failover?
+A: Yes, with Magic Mail. It routes each mail to an account by rules, keeps hourly and daily quotas, and moves to the next account only when the provider provably did not take the mail.
+
+Q: How do I see and end active user sessions in Strapi 5?
+A: Magic Session Manager records every Users & Permissions sign-in. Admins end single sessions or all sessions of a user, and users get logout routes for their own devices.
+
+Q: Can Strapi 5 send WhatsApp, Telegram or SMS messages?
+A: Magic MessageGate sends template messages through the official WhatsApp Cloud API, the Telegram Bot API, seven.io or Twilio, with delivery and read status and a fallback to SMS or e-mail.
+
+Q: Do the plugins work with several Strapi instances?
+A: Yes. They keep shared state in the database, so Railway replicas and pm2 cluster workers on one PostgreSQL work without sticky sessions. plugin-io additionally needs its Postgres or Redis adapter.
+
+Q: Are the plugins free?
+A: Yes. All eight are MIT licensed, without license keys, tiers or telemetry: Magic Link, Magic Mail, Magic Session Manager, Magic Mark, Auto UUID, Magic MessageGate, plugin-io and Magic Editor X.
+
+Q: Where is the source code?
+A: Every project links its GitHub repository. All of them are on github.com/Schero94; plugin-io lives in the strapi-community organization.
+
+## Note: Running Strapi 5 plugins on several instances
+
+Published 2026-11-11. Two Railway replicas with four pm2 workers each are eight Strapi processes that share one database and no memory. A plugin that counts, locks or schedules in memory does all of that eight times. These are the patterns the plugins on this site use instead, with the numbers their tests measured.
+
+### Keep shared state in the database
+
+Every value that two processes must agree on lives in the Strapi database: rate-limit counters, quotas, revocations, leases and outbox rows. Magic Link, Magic Mail, Magic Session Manager and Magic MessageGate therefore need no sticky sessions, and Redis is optional. Requests can land on any process.
+
+### Write conditionally instead of reading first
+
+A read followed by a write loses updates when two processes run it at once. The plugins write in one statement and let the database decide. Magic Mail reserves quota with one UPDATE ... WHERE count < limit per send and counts opens with SET count = count + 1. Magic Link accepts a login link or code with a conditional update, so it is accepted exactly once across all processes.
+
+### Lock only where a read-modify-write cannot be avoided
+
+Magic Link writes its plugin-store keys (JWT blocklist, IP bans, settings) under a cluster-wide lock: pg_advisory_xact_lock on PostgreSQL, GET_LOCK on MySQL and the write lock on SQLite. Hot paths stay lock-free. Up to version 6.1 every login appended to one shared session list under that lock. Version 6.2 stores one row per JWT instead. With 4 processes on PostgreSQL 16 and 100 simultaneous logins while the old lock was held for 5 seconds, 6.1 needed 5.5 s and 6.2 needed 0.38 s.
+
+### Run background jobs under a lease
+
+Each process keeps its timers, but every run of a cleanup, quota refresh or migration takes a lease in the database first. One process does the work per interval; if it dies, another takes over on its next tick. Magic Mail and Magic Link both work this way.
+
+### Claim outbox rows so each message is sent once
+
+Magic MessageGate claims outbox messages with FOR UPDATE SKIP LOCKED on PostgreSQL and MySQL 8, and with a conditional update on SQLite. In its test, 8 processes on one PostgreSQL database behind a round-robin balancer sent 500 messages with 0 duplicates. A send whose outcome is unknown becomes uncertain and waits for an admin instead of being retried into a duplicate.
+
+### Accept short, documented windows for caches
+
+Some reads are cached per process and the delay is written down. In Magic Link a revocation reaches the other processes within 2 seconds and changed rate-limit settings within 5 seconds. Magic Mail re-checks its settings row about once a second.
+
+### Give every process the same secrets
+
+A process with a different JWT_SECRET rejects tokens the others issued, and a different encryption key cannot read stored credentials. Magic Mail logs short fingerprints of its secrets at startup, so two instances that print different values have different secrets.
+
+### Pass the real client IP through the proxy
+
+Behind Railway's edge or any load balancer, set proxy: { koa: true, maxIpsCount: 1 } in config/server.js. Without it every unauthenticated caller shares the proxy's address and therefore one rate-limit quota.
+
+### Start one replica on schema changes
+
+Strapi creates and alters tables when it starts, and that step is not coordinated between processes. On an empty database or after an update that adds columns, all but one process can stop with already exists errors and restart. Deploy such an update with one replica and scale up afterwards.
+
+### Socket.IO needs an adapter
+
+WebSocket connections are held by one process. plugin-io makes several processes act as one Socket.IO server with the Postgres adapter (LISTEN/NOTIFY) or the Redis adapter, and clients connect WebSocket-only because Railway and pm2 have no sticky sessions. Each process opens its own connection pool: 8 processes with Strapi's default pool of 10 need 96 PostgreSQL connections, so set pool.max to about 6 to stay under a limit of 100.
+
+Sources:
+- Magic Link: Running several instances: https://github.com/Schero94/strapi-plugin-magic-link-v5#running-several-instances-railway-replicas-pm2-cluster
+- Magic Mail: Running several instances: https://github.com/Schero94/Magic-Mail#running-several-instances-railway-replicas-pm2-cluster
+- Magic Session Manager: Running several instances: https://github.com/Schero94/Magic-Sessionmanager#running-several-instances-railway-replicas-pm2-cluster
+- Magic MessageGate: Running several instances: https://github.com/Schero94/Magic-MessageGate#running-several-instances
+- plugin-io: Running several instances: https://strapi-community.github.io/plugin-io/guide/multiple-instances

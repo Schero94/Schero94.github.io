@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<title>Magic Mail: e-mail routing and failover for Strapi 5 | Schero D.</title>
+<meta name="description" content="Magic Mail is a free Strapi 5 plugin that sends e-mail through several SMTP and API accounts with routing rules, quotas, safe failover, an outbox with retries, templates and tracking.">
+<meta name="author" content="Schero D.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://schero94.github.io/plugins/magic-mail/">
+<link rel="alternate" hreflang="en" href="https://schero94.github.io/plugins/magic-mail/">
+<link rel="alternate" hreflang="de" href="https://schero94.github.io/de/plugins/magic-mail/">
+<link rel="alternate" hreflang="x-default" href="https://schero94.github.io/plugins/magic-mail/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Schero D.">
+<meta property="og:title" content="Magic Mail: e-mail routing and failover for Strapi 5 | Schero D.">
+<meta property="og:description" content="Magic Mail is a free Strapi 5 plugin that sends e-mail through several SMTP and API accounts with routing rules, quotas, safe failover, an outbox with retries, templates and tracking.">
+<meta property="og:url" content="https://schero94.github.io/plugins/magic-mail/">
+<meta property="og:image" content="https://schero94.github.io/og/en-plugin-magic-mail.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Magic Mail: e-mail routing and failover for Strapi 5">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Magic Mail: e-mail routing and failover for Strapi 5 | Schero D.">
+<meta name="twitter:description" content="Magic Mail is a free Strapi 5 plugin that sends e-mail through several SMTP and API accounts with routing rules, quotas, safe failover, an outbox with retries, templates and tracking.">
+<meta name="twitter:image" content="https://schero94.github.io/og/en-plugin-magic-mail.png">
+<meta name="twitter:image:alt" content="Magic Mail: e-mail routing and failover for Strapi 5">
+<meta name="theme-color" content="#161c1a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ecebe4" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/BricolageGrotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v=19l0cjs">
+<script src="/js/theme.js?v=19l0cjs"></script>
+<script src="/js/site.js?v=19l0cjs" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://schero94.github.io/#person","name":"Schero D.","alternateName":"Schero94","url":"https://schero94.github.io/","jobTitle":["Project manager","AI expert","Software developer","Sysadmin","Product developer"],"description":"Project manager, AI expert, Software developer, Sysadmin, Product developer in Berlin.","address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"sameAs":["https://github.com/Schero94","https://www.npmjs.com/~schero94"],"knowsAbout":["Project management","Product development","Artificial intelligence","Large language models","AI coding agents","Software engineering","Node.js","TypeScript","React","Strapi","Nuxt","Vue.js","Webflow","DevOps","System administration","PostgreSQL","CI/CD"]},{"@type":"WebSite","@id":"https://schero94.github.io/#website","url":"https://schero94.github.io/","name":"Schero D.","inLanguage":["en","de"],"publisher":{"@id":"https://schero94.github.io/#person"}},{"@type":"SoftwareApplication","@id":"https://schero94.github.io/plugins/magic-mail/#software","name":"Magic Mail","alternateName":"MagicMail","description":"Magic Mail is a Strapi 5 plugin that sends every Strapi e-mail through the right account. It handles several SMTP and API accounts with routing rules, quotas, failover that never sends a mail twice, an outbox with retries, templates and delivery tracking. Your code keeps calling strapi.plugin('email').service('email').send(), and the Users & Permissions mails go through Magic Mail without changes.","url":"https://schero94.github.io/plugins/magic-mail/","applicationCategory":"DeveloperApplication","applicationSubCategory":"Strapi 5 plugin","operatingSystem":"Cross-platform, Node.js >=22.12.0 \u003c=26.x.x","softwareRequirements":"@strapi/strapi ^5.57.0","softwareVersion":"4.5.0","dateModified":"2026-11-10T21:57:31.614Z","downloadUrl":"https://www.npmjs.com/package/strapi-plugin-magic-mail","installUrl":"https://www.npmjs.com/package/strapi-plugin-magic-mail","license":"https://github.com/Schero94/Magic-Mail/blob/main/LICENSE","sameAs":["https://github.com/Schero94/Magic-Mail","https://schero94.github.io/Magic-Mail/","https://www.npmjs.com/package/strapi-plugin-magic-mail"],"author":{"@id":"https://schero94.github.io/#person"},"maintainer":{"@id":"https://schero94.github.io/#person"},"inLanguage":"en","image":"https://schero94.github.io/icons/magic-mail.svg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"SoftwareSourceCode","@id":"https://schero94.github.io/plugins/magic-mail/#source","name":"Magic Mail","codeRepository":"https://github.com/Schero94/Magic-Mail","programmingLanguage":"JavaScript","runtimePlatform":"Node.js","license":"https://github.com/Schero94/Magic-Mail/blob/main/LICENSE","targetProduct":{"@id":"https://schero94.github.io/plugins/magic-mail/#software"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://schero94.github.io/"},{"@type":"ListItem","position":2,"name":"Plugins","item":"https://schero94.github.io/plugins/"},{"@type":"ListItem","position":3,"name":"Magic Mail","item":"https://schero94.github.io/plugins/magic-mail/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I have to change my existing e-mail code?","acceptedAnswer":{"@type":"Answer","text":"No. Magic Mail wraps the provider of @strapi/email at startup, so send(), sendTemplatedEmail(), the admin password reset and the Users & Permissions mails are routed through it."}},{"@type":"Question","name":"Can a mail be delivered twice?","acceptedAnswer":{"@type":"Answer","text":"Not because of Magic Mail's own retries. Failover only moves on when the provider provably did not take the mail, and the outbox never re-sends an uncertain mail on its own."}},{"@type":"Question","name":"Do I need Redis or sticky sessions for several replicas?","acceptedAnswer":{"@type":"Answer","text":"No. Quotas, rate limits, OAuth flows and the outbox are coordinated through the database. Redis is optional for the rate limiter."}},{"@type":"Question","name":"Is there a license key or a usage limit?","acceptedAnswer":{"@type":"Answer","text":"No. Magic Mail is MIT licensed with no license key and no usage limits."}}]}]}</script>
+</head>
+<body class="plugin-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar" data-reveal-skip>
+  <a class="wordmark" href="/" aria-label="Schero D., Home">Schero D.</a>
+  <nav class="nav" id="site-nav" aria-label="Main">
+    <ul>
+      <li><a href="/#what">What I do</a></li>
+      <li><a href="/plugins/" aria-current="page">Plugins</a></li>
+      <li><a href="/notes/">Notes</a></li>
+      <li><a href="https://github.com/Schero94" rel="me">GitHub</a></li>
+      <li class="nav-lang"><a href="/de/plugins/magic-mail/" hreflang="de" lang="de"><span aria-hidden="true">DE</span><span class="vh">Deutsch</span><span class="nav-lang-long" aria-hidden="true">Deutsch</span></a></li>
+    </ul>
+  </nav>
+  <div class="bar-tools">
+    <button type="button" class="theme-toggle" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/></svg></button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close" hidden><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+  </div>
+</header>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/plugins/">Plugins</a></li><li><span aria-current="page">Magic Mail</span></li></ol></nav>
+<section class="p-hero" aria-labelledby="p-title">
+  <div class="p-head">
+    <h1 id="p-title" class="display-sm">Magic Mail</h1>
+    <p class="lead">Magic Mail is a Strapi 5 plugin that sends every Strapi e-mail through the right account. It handles several SMTP and API accounts with routing rules, quotas, failover that never sends a mail twice, an outbox with retries, templates and delivery tracking. Your code keeps calling strapi.plugin('email').service('email').send(), and the Users &amp; Permissions mails go through Magic Mail without changes.</p>
+    
+    
+    <div class="install"><p class="small muted" id="install-label">Install</p><div class="code-row"><pre aria-labelledby="install-label"><code>npm install strapi-plugin-magic-mail</code></pre><button type="button" class="copy-btn" data-copy="npm install strapi-plugin-magic-mail" data-done="Copied">Copy</button></div></div>
+  </div>
+  <div class="p-side">
+    <img src="/icons/magic-mail.svg" alt="Magic Mail icon" width="160" height="160" class="icon-tile" loading="lazy" decoding="async">
+    <dl class="p-facts"><div><dt>Version</dt><dd>v4.5.0</dd></div><div><dt>Strapi</dt><dd>^5.57.0</dd></div><div><dt>Node.js</dt><dd>&gt;=22.12.0 &lt;=26.x.x</dd></div><div><dt>License</dt><dd>MIT, free</dd></div><div><dt>Released</dt><dd><time datetime="2026-11-10">10 November 2026</time></dd></div></dl>
+    <p class="small muted">Version, release date and ranges are read from the npm registry at build time.</p>
+  </div>
+</section>
+<section class="p-shots" aria-label="Screenshots">
+  <div class="strip-wrap">
+  <div class="strip" tabindex="0" role="region" aria-label="Magic Mail: screenshots"><figure class="slide"><img src="/shots/magic-mail/accounts.webp" alt="Magic Mail e-mail accounts screen with priority, usage against the daily limit and total sent" width="1280" height="800" decoding="async"></figure><figure class="slide"><img src="/shots/magic-mail/routing-rules.webp" alt="Routing rules that choose the sending account by e-mail type or recipient" width="1280" height="800" decoding="async"></figure><figure class="slide"><img src="/shots/magic-mail/outbox.webp" alt="Outbox tab with queued and retried mails" width="1280" height="800" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/shots/magic-mail/analytics-dark.webp" alt="Magic Mail delivery analytics in dark mode" width="1280" height="800" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/shots/magic-mail/template-editor.webp" alt="Template editor with variables and preview" width="1280" height="800" loading="lazy" decoding="async"></figure></div>
+</div>
+  <p class="p-shots-ctl"><span class="strip-ctl"><button type="button" class="strip-btn" data-dir="-1" aria-label="Previous picture"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button><button type="button" class="strip-btn" data-dir="1" aria-label="Next picture"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button></span></p>
+</section>
+<section class="p-features" aria-labelledby="feat-title">
+  <h2 id="feat-title" class="h-sec">What it does</h2>
+  <ul class="feat-list"><li>Six providers: Gmail, Microsoft 365 and Yahoo with OAuth 2.0, any SMTP server with optional DKIM, SendGrid and Mailgun. Credentials are encrypted with AES-256-GCM and never reach the browser.</li><li>Routing rules by e-mail type, recipient, subject, template or a custom value, with a fallback account per rule.</li><li>Hourly and daily quotas per account. Failover tries the next account only when the error proves the provider did not take the mail.</li><li>An opt-in outbox with retries (after 1, 5 and 15 minutes by default) and idempotency keys.</li><li>Templates in a visual editor (Unlayer) or plain HTML and text, with Mustache variables, versions, import and export.</li><li>Signed SendGrid and Mailgun bounce and complaint webhooks, a delivery log, and open and click tracking with truncated IPs.</li></ul>
+</section>
+<section class="p-when" aria-label="Use it when">
+  <div><h2 class="h-sec">Use it when</h2><p>You send transactional mail from Strapi through more than one account or provider and need limits, failover or a delivery log.</p></div>
+  <div><h2 class="h-sec">Not for</h2><p>It sends e-mail only. Bounce webhooks exist for SendGrid and Mailgun, not for SMTP, Gmail, Microsoft 365 or Yahoo accounts.</p></div>
+  <div><h2 class="h-sec">What it needs</h2><p>Strapi 5.57.0 or newer with Users &amp; Permissions. Outside development and test it needs an encryption key.</p></div>
+</section>
+<section class="faq" aria-labelledby="p-faq-title">
+  <h2 id="p-faq-title" class="h-sec">Questions</h2>
+  <div class="faq-text"><div class="qa"><h3>Do I have to change my existing e-mail code?</h3> <p>No. Magic Mail wraps the provider of @strapi/email at startup, so send(), sendTemplatedEmail(), the admin password reset and the Users &amp; Permissions mails are routed through it.</p></div><div class="qa"><h3>Can a mail be delivered twice?</h3> <p>Not because of Magic Mail's own retries. Failover only moves on when the provider provably did not take the mail, and the outbox never re-sends an uncertain mail on its own.</p></div><div class="qa"><h3>Do I need Redis or sticky sessions for several replicas?</h3> <p>No. Quotas, rate limits, OAuth flows and the outbox are coordinated through the database. Redis is optional for the rate limiter.</p></div><div class="qa"><h3>Is there a license key or a usage limit?</h3> <p>No. Magic Mail is MIT licensed with no license key and no usage limits.</p></div></div>
+</section>
+<section class="p-docs" aria-labelledby="docs-title">
+  <h2 id="docs-title" class="h-sec">Full documentation</h2>
+  <ul class="doc-tiles"><li><a href="https://schero94.github.io/Magic-Mail/"><span>Documentation</span><span class="small muted">schero94.github.io/Magic-Mail/</span></a></li><li><a href="https://github.com/Schero94/Magic-Mail"><span>Source on GitHub</span><span class="small muted">github.com/Schero94/Magic-Mail</span></a></li><li><a href="https://www.npmjs.com/package/strapi-plugin-magic-mail"><span>Package on npm</span><span class="small muted">www.npmjs.com/package/strapi-plugin-magic-mail</span></a></li></ul>
+</section>
+<section class="p-others" aria-labelledby="others-title">
+  <h2 id="others-title" class="h-sec">Other plugins</h2>
+  <ul class="other-tiles"><li><a href="/plugins/magic-link/"><img src="/icons/magic-link.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Link</span><span class="small muted">Passwordless login</span></a></li><li><a href="/plugins/magic-sessionmanager/"><img src="/icons/sessionmanager.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Session Manager</span><span class="small muted">Session management</span></a></li><li><a href="/plugins/magic-mark/"><img src="/icons/magic-mark.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Mark</span><span class="small muted">Content Manager bookmarks</span></a></li><li><a href="/plugins/auto-uuid/"><img src="/icons/auto-uuid.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Auto UUID</span><span class="small muted">UUID custom field</span></a></li><li><a href="/plugins/magic-messagegate/"><img src="/icons/messagegate.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic MessageGate</span><span class="small muted">WhatsApp, Telegram and SMS</span></a></li><li><a href="/plugins/plugin-io/"><img src="/icons/plugin-io.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>plugin-io</span><span class="small muted">Real-time events</span></a></li><li><a href="/plugins/magic-editor-x/"><img src="/icons/magic-editor-x.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Editor X</span><span class="small muted">Block editor</span></a></li></ul>
+</section>
+</main>
+<footer class="foot" data-reveal-skip>
+  <div class="tile t-statement"><p class="foot-statement">Software, AI and product work from Berlin.</p><p class="small">© 2026 Schero D. · <a href="/privacy/">Privacy</a><br>Last updated: <time datetime="2026-11-12">12 November 2026</time></p></div>
+  <nav class="tile t-nav" aria-label="Pages"><ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/plugins/">Plugins</a></li>
+    <li><a href="/notes/">Notes</a></li>
+    <li><a href="/llms.txt">llms.txt</a></li>
+  </ul></nav>
+  <div class="tile t-time"><p>Berlin</p><p class="small">Local time <time class="local-time" data-tz="Europe/Berlin" data-lang="en">CET</time></p></div>
+  <div class="tile t-gh"><a class="tile-link" href="https://github.com/Schero94" rel="me"><span>GitHub</span><span class="small muted">Schero94</span></a><a class="small" href="https://www.npmjs.com/~schero94" rel="me">npm ~schero94</a></div>
+  <div class="tile t-word" aria-hidden="true"><span>Schero D.</span></div>
+  <a class="tile t-invite" href="https://github.com/Schero94" rel="me"><span>All projects on GitHub</span><svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><path d="M10 38 38 10M16 10h22v22" fill="none" stroke="currentColor" stroke-width="4"/></svg></a>
+</footer>
+</body>
+</html>

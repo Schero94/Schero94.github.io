@@ -1,0 +1,11 @@
+/* TEAM */
+Project manager, AI, software developer, sysadmin, product developer: Schero D.
+GitHub: https://github.com/Schero94
+Location: Berlin, Germany
+
+/* SITE */
+Last update: 2026-11-12
+Languages: English, German
+Standards: HTML, CSS, JavaScript; no frameworks, no trackers
+Type: Bricolage Grotesque by Mathieu Triay (Atelier Triay), SIL Open Font License 1.1
+Software: Node.js, a small static build script, Playwright for checks

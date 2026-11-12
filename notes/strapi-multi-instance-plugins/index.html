@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<title>Running Strapi 5 plugins on several instances | Schero D.</title>
+<meta name="description" content="How Strapi 5 plugins stay correct on Railway replicas and pm2 cluster workers: shared state in the database, conditional updates, locks, leases, outbox claims, secrets, proxies and first deploys.">
+<meta name="author" content="Schero D.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://schero94.github.io/notes/strapi-multi-instance-plugins/">
+<link rel="alternate" hreflang="en" href="https://schero94.github.io/notes/strapi-multi-instance-plugins/">
+<link rel="alternate" hreflang="de" href="https://schero94.github.io/de/notes/strapi-multi-instance-plugins/">
+<link rel="alternate" hreflang="x-default" href="https://schero94.github.io/notes/strapi-multi-instance-plugins/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Schero D.">
+<meta property="og:title" content="Running Strapi 5 plugins on several instances | Schero D.">
+<meta property="og:description" content="How Strapi 5 plugins stay correct on Railway replicas and pm2 cluster workers: shared state in the database, conditional updates, locks, leases, outbox claims, secrets, proxies and first deploys.">
+<meta property="og:url" content="https://schero94.github.io/notes/strapi-multi-instance-plugins/">
+<meta property="og:image" content="https://schero94.github.io/og/en-note-strapi-multi-instance-plugins.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Running Strapi 5 plugins on several instances | Schero D.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Running Strapi 5 plugins on several instances | Schero D.">
+<meta name="twitter:description" content="How Strapi 5 plugins stay correct on Railway replicas and pm2 cluster workers: shared state in the database, conditional updates, locks, leases, outbox claims, secrets, proxies and first deploys.">
+<meta name="twitter:image" content="https://schero94.github.io/og/en-note-strapi-multi-instance-plugins.png">
+<meta name="twitter:image:alt" content="Running Strapi 5 plugins on several instances | Schero D.">
+<meta name="theme-color" content="#161c1a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ecebe4" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/BricolageGrotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v=19l0cjs">
+<script src="/js/theme.js?v=19l0cjs"></script>
+<script src="/js/site.js?v=19l0cjs" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://schero94.github.io/#person","name":"Schero D.","alternateName":"Schero94","url":"https://schero94.github.io/","jobTitle":["Project manager","AI expert","Software developer","Sysadmin","Product developer"],"description":"Project manager, AI expert, Software developer, Sysadmin, Product developer in Berlin.","address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"sameAs":["https://github.com/Schero94","https://www.npmjs.com/~schero94"],"knowsAbout":["Project management","Product development","Artificial intelligence","Large language models","AI coding agents","Software engineering","Node.js","TypeScript","React","Strapi","Nuxt","Vue.js","Webflow","DevOps","System administration","PostgreSQL","CI/CD"]},{"@type":"WebSite","@id":"https://schero94.github.io/#website","url":"https://schero94.github.io/","name":"Schero D.","inLanguage":["en","de"],"publisher":{"@id":"https://schero94.github.io/#person"}},{"@type":"TechArticle","headline":"Running Strapi 5 plugins on several instances","description":"How Strapi 5 plugins stay correct on Railway replicas and pm2 cluster workers: shared state in the database, conditional updates, locks, leases, outbox claims, secrets, proxies and first deploys.","datePublished":"2026-11-11","dateModified":"2026-11-11","inLanguage":"en","author":{"@id":"https://schero94.github.io/#person"},"publisher":{"@id":"https://schero94.github.io/#person"},"mainEntityOfPage":"https://schero94.github.io/notes/strapi-multi-instance-plugins/","image":"https://schero94.github.io/og/en-note-strapi-multi-instance-plugins.png","about":["Strapi 5","Horizontal scaling","PostgreSQL"],"citation":["https://github.com/Schero94/strapi-plugin-magic-link-v5#running-several-instances-railway-replicas-pm2-cluster","https://github.com/Schero94/Magic-Mail#running-several-instances-railway-replicas-pm2-cluster","https://github.com/Schero94/Magic-Sessionmanager#running-several-instances-railway-replicas-pm2-cluster","https://github.com/Schero94/Magic-MessageGate#running-several-instances","https://strapi-community.github.io/plugin-io/guide/multiple-instances"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://schero94.github.io/"},{"@type":"ListItem","position":2,"name":"Notes","item":"https://schero94.github.io/notes/"},{"@type":"ListItem","position":3,"name":"Running Strapi 5 plugins on several instances","item":"https://schero94.github.io/notes/strapi-multi-instance-plugins/"}]}]}</script>
+</head>
+<body class="note-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar" data-reveal-skip>
+  <a class="wordmark" href="/" aria-label="Schero D., Home">Schero D.</a>
+  <nav class="nav" id="site-nav" aria-label="Main">
+    <ul>
+      <li><a href="/#what">What I do</a></li>
+      <li><a href="/plugins/">Plugins</a></li>
+      <li><a href="/notes/" aria-current="page">Notes</a></li>
+      <li><a href="https://github.com/Schero94" rel="me">GitHub</a></li>
+      <li class="nav-lang"><a href="/de/notes/strapi-multi-instance-plugins/" hreflang="de" lang="de"><span aria-hidden="true">DE</span><span class="vh">Deutsch</span><span class="nav-lang-long" aria-hidden="true">Deutsch</span></a></li>
+    </ul>
+  </nav>
+  <div class="bar-tools">
+    <button type="button" class="theme-toggle" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/></svg></button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close" hidden><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+  </div>
+</header>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/notes/">Notes</a></li><li><span aria-current="page">Running Strapi 5 plugins on several instances</span></li></ol></nav>
+<article class="note" aria-labelledby="note-title">
+  <header class="note-head">
+    <h1 id="note-title" class="display-sm">Running Strapi 5 plugins on several instances</h1>
+    <p class="small muted">Schero D. · <time datetime="2026-11-11">11 November 2026</time></p>
+    <p class="lead">Two Railway replicas with four pm2 workers each are eight Strapi processes that share one database and no memory. A plugin that counts, locks or schedules in memory does all of that eight times. These are the patterns the plugins on this site use instead, with the numbers their tests measured.</p>
+  </header>
+  <nav class="note-toc" aria-label="Contents"><ul><li><a href="#s-0">Keep shared state in the database</a></li><li><a href="#s-1">Write conditionally instead of reading first</a></li><li><a href="#s-2">Lock only where a read-modify-write cannot be avoided</a></li><li><a href="#s-3">Run background jobs under a lease</a></li><li><a href="#s-4">Claim outbox rows so each message is sent once</a></li><li><a href="#s-5">Accept short, documented windows for caches</a></li><li><a href="#s-6">Give every process the same secrets</a></li><li><a href="#s-7">Pass the real client IP through the proxy</a></li><li><a href="#s-8">Start one replica on schema changes</a></li><li><a href="#s-9">Socket.IO needs an adapter</a></li></ul></nav>
+  <div class="note-body"><section aria-labelledby="s-0"><h2 id="s-0">Keep shared state in the database</h2><p>Every value that two processes must agree on lives in the Strapi database: rate-limit counters, quotas, revocations, leases and outbox rows. Magic Link, Magic Mail, Magic Session Manager and Magic MessageGate therefore need no sticky sessions, and Redis is optional. Requests can land on any process.</p></section><section aria-labelledby="s-1"><h2 id="s-1">Write conditionally instead of reading first</h2><p>A read followed by a write loses updates when two processes run it at once. The plugins write in one statement and let the database decide. Magic Mail reserves quota with one <code>UPDATE ... WHERE count &lt; limit</code> per send and counts opens with <code>SET count = count + 1</code>. Magic Link accepts a login link or code with a conditional update, so it is accepted exactly once across all processes.</p></section><section aria-labelledby="s-2"><h2 id="s-2">Lock only where a read-modify-write cannot be avoided</h2><p>Magic Link writes its plugin-store keys (JWT blocklist, IP bans, settings) under a cluster-wide lock: <code>pg_advisory_xact_lock</code> on PostgreSQL, <code>GET_LOCK</code> on MySQL and the write lock on SQLite. Hot paths stay lock-free. Up to version 6.1 every login appended to one shared session list under that lock. Version 6.2 stores one row per JWT instead. With 4 processes on PostgreSQL 16 and 100 simultaneous logins while the old lock was held for 5 seconds, 6.1 needed 5.5 s and 6.2 needed 0.38 s.</p></section><section aria-labelledby="s-3"><h2 id="s-3">Run background jobs under a lease</h2><p>Each process keeps its timers, but every run of a cleanup, quota refresh or migration takes a lease in the database first. One process does the work per interval; if it dies, another takes over on its next tick. Magic Mail and Magic Link both work this way.</p></section><section aria-labelledby="s-4"><h2 id="s-4">Claim outbox rows so each message is sent once</h2><p>Magic MessageGate claims outbox messages with <code>FOR UPDATE SKIP LOCKED</code> on PostgreSQL and MySQL 8, and with a conditional update on SQLite. In its test, 8 processes on one PostgreSQL database behind a round-robin balancer sent 500 messages with 0 duplicates. A send whose outcome is unknown becomes uncertain and waits for an admin instead of being retried into a duplicate.</p></section><section aria-labelledby="s-5"><h2 id="s-5">Accept short, documented windows for caches</h2><p>Some reads are cached per process and the delay is written down. In Magic Link a revocation reaches the other processes within 2 seconds and changed rate-limit settings within 5 seconds. Magic Mail re-checks its settings row about once a second.</p></section><section aria-labelledby="s-6"><h2 id="s-6">Give every process the same secrets</h2><p>A process with a different <code>JWT_SECRET</code> rejects tokens the others issued, and a different encryption key cannot read stored credentials. Magic Mail logs short fingerprints of its secrets at startup, so two instances that print different values have different secrets.</p></section><section aria-labelledby="s-7"><h2 id="s-7">Pass the real client IP through the proxy</h2><p>Behind Railway's edge or any load balancer, set <code>proxy: { koa: true, maxIpsCount: 1 }</code> in <code>config/server.js</code>. Without it every unauthenticated caller shares the proxy's address and therefore one rate-limit quota.</p></section><section aria-labelledby="s-8"><h2 id="s-8">Start one replica on schema changes</h2><p>Strapi creates and alters tables when it starts, and that step is not coordinated between processes. On an empty database or after an update that adds columns, all but one process can stop with <code>already exists</code> errors and restart. Deploy such an update with one replica and scale up afterwards.</p></section><section aria-labelledby="s-9"><h2 id="s-9">Socket.IO needs an adapter</h2><p>WebSocket connections are held by one process. plugin-io makes several processes act as one Socket.IO server with the Postgres adapter (LISTEN/NOTIFY) or the Redis adapter, and clients connect WebSocket-only because Railway and pm2 have no sticky sessions. Each process opens its own connection pool: 8 processes with Strapi's default pool of 10 need 96 PostgreSQL connections, so set <code>pool.max</code> to about 6 to stay under a limit of 100.</p></section>
+  <section aria-labelledby="src-title"><h2 id="src-title">Sources</h2><ul class="sources"><li><a href="https://github.com/Schero94/strapi-plugin-magic-link-v5#running-several-instances-railway-replicas-pm2-cluster">Magic Link: Running several instances</a></li><li><a href="https://github.com/Schero94/Magic-Mail#running-several-instances-railway-replicas-pm2-cluster">Magic Mail: Running several instances</a></li><li><a href="https://github.com/Schero94/Magic-Sessionmanager#running-several-instances-railway-replicas-pm2-cluster">Magic Session Manager: Running several instances</a></li><li><a href="https://github.com/Schero94/Magic-MessageGate#running-several-instances">Magic MessageGate: Running several instances</a></li><li><a href="https://strapi-community.github.io/plugin-io/guide/multiple-instances">plugin-io: Running several instances</a></li></ul></section>
+  </div>
+</article>
+</main>
+<footer class="foot" data-reveal-skip>
+  <div class="tile t-statement"><p class="foot-statement">Software, AI and product work from Berlin.</p><p class="small">© 2026 Schero D. · <a href="/privacy/">Privacy</a><br>Last updated: <time datetime="2026-11-12">12 November 2026</time></p></div>
+  <nav class="tile t-nav" aria-label="Pages"><ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/plugins/">Plugins</a></li>
+    <li><a href="/notes/">Notes</a></li>
+    <li><a href="/llms.txt">llms.txt</a></li>
+  </ul></nav>
+  <div class="tile t-time"><p>Berlin</p><p class="small">Local time <time class="local-time" data-tz="Europe/Berlin" data-lang="en">CET</time></p></div>
+  <div class="tile t-gh"><a class="tile-link" href="https://github.com/Schero94" rel="me"><span>GitHub</span><span class="small muted">Schero94</span></a><a class="small" href="https://www.npmjs.com/~schero94" rel="me">npm ~schero94</a></div>
+  <div class="tile t-word" aria-hidden="true"><span>Schero D.</span></div>
+  <a class="tile t-invite" href="https://github.com/Schero94" rel="me"><span>All projects on GitHub</span><svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><path d="M10 38 38 10M16 10h22v22" fill="none" stroke="currentColor" stroke-width="4"/></svg></a>
+</footer>
+</body>
+</html>

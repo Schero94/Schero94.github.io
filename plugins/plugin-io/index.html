@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<title>plugin-io: Socket.IO real-time events for Strapi 5 | Schero D.</title>
+<meta name="description" content="@strapi-community/plugin-io is a free Strapi 5 plugin that sends real-time Socket.IO events for content changes, filtered by role and API token permissions, with presence and monitoring.">
+<meta name="author" content="Schero D.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://schero94.github.io/plugins/plugin-io/">
+<link rel="alternate" hreflang="en" href="https://schero94.github.io/plugins/plugin-io/">
+<link rel="alternate" hreflang="de" href="https://schero94.github.io/de/plugins/plugin-io/">
+<link rel="alternate" hreflang="x-default" href="https://schero94.github.io/plugins/plugin-io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Schero D.">
+<meta property="og:title" content="plugin-io: Socket.IO real-time events for Strapi 5 | Schero D.">
+<meta property="og:description" content="@strapi-community/plugin-io is a free Strapi 5 plugin that sends real-time Socket.IO events for content changes, filtered by role and API token permissions, with presence and monitoring.">
+<meta property="og:url" content="https://schero94.github.io/plugins/plugin-io/">
+<meta property="og:image" content="https://schero94.github.io/og/en-plugin-plugin-io.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="plugin-io: Socket.IO real-time events for Strapi 5">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="plugin-io: Socket.IO real-time events for Strapi 5 | Schero D.">
+<meta name="twitter:description" content="@strapi-community/plugin-io is a free Strapi 5 plugin that sends real-time Socket.IO events for content changes, filtered by role and API token permissions, with presence and monitoring.">
+<meta name="twitter:image" content="https://schero94.github.io/og/en-plugin-plugin-io.png">
+<meta name="twitter:image:alt" content="plugin-io: Socket.IO real-time events for Strapi 5">
+<meta name="theme-color" content="#161c1a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ecebe4" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/BricolageGrotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v=19l0cjs">
+<script src="/js/theme.js?v=19l0cjs"></script>
+<script src="/js/site.js?v=19l0cjs" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://schero94.github.io/#person","name":"Schero D.","alternateName":"Schero94","url":"https://schero94.github.io/","jobTitle":["Project manager","AI expert","Software developer","Sysadmin","Product developer"],"description":"Project manager, AI expert, Software developer, Sysadmin, Product developer in Berlin.","address":{"@type":"PostalAddress","addressLocality":"Berlin","addressCountry":"DE"},"sameAs":["https://github.com/Schero94","https://www.npmjs.com/~schero94"],"knowsAbout":["Project management","Product development","Artificial intelligence","Large language models","AI coding agents","Software engineering","Node.js","TypeScript","React","Strapi","Nuxt","Vue.js","Webflow","DevOps","System administration","PostgreSQL","CI/CD"]},{"@type":"WebSite","@id":"https://schero94.github.io/#website","url":"https://schero94.github.io/","name":"Schero D.","inLanguage":["en","de"],"publisher":{"@id":"https://schero94.github.io/#person"}},{"@type":"SoftwareApplication","@id":"https://schero94.github.io/plugins/plugin-io/#software","name":"plugin-io","alternateName":"Socket.IO for Strapi","description":"@strapi-community/plugin-io attaches a Socket.IO server to Strapi 5 and sends an event whenever a watched document is created, updated, published, unpublished, has its draft discarded or is deleted. Each client receives only what its role or API token may read through the REST API, sanitized with the same Content API sanitizer Strapi uses.","url":"https://schero94.github.io/plugins/plugin-io/","applicationCategory":"DeveloperApplication","applicationSubCategory":"Strapi 5 plugin","operatingSystem":"Cross-platform, Node.js ^22.21.0 || >=24.9.0 \u003c=26.x.x","softwareRequirements":"@strapi/strapi ^5.38.0","softwareVersion":"6.0.0","dateModified":"2026-11-07T20:33:26.256Z","downloadUrl":"https://www.npmjs.com/package/@strapi-community/plugin-io","installUrl":"https://www.npmjs.com/package/@strapi-community/plugin-io","license":"https://github.com/strapi-community/plugin-io/blob/main/LICENSE","sameAs":["https://github.com/strapi-community/plugin-io","https://strapi-community.github.io/plugin-io/","https://www.npmjs.com/package/@strapi-community/plugin-io"],"maintainer":{"@id":"https://schero94.github.io/#person"},"inLanguage":"en","image":"https://schero94.github.io/icons/plugin-io.svg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"SoftwareSourceCode","@id":"https://schero94.github.io/plugins/plugin-io/#source","name":"plugin-io","codeRepository":"https://github.com/strapi-community/plugin-io","programmingLanguage":"JavaScript","runtimePlatform":"Node.js","license":"https://github.com/strapi-community/plugin-io/blob/main/LICENSE","targetProduct":{"@id":"https://schero94.github.io/plugins/plugin-io/#software"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://schero94.github.io/"},{"@type":"ListItem","position":2,"name":"Plugins","item":"https://schero94.github.io/plugins/"},{"@type":"ListItem","position":3,"name":"plugin-io","item":"https://schero94.github.io/plugins/plugin-io/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which events does it send?","acceptedAnswer":{"@type":"Answer","text":"An event when a watched document is created, updated, published, unpublished, has its draft discarded or is deleted, for example article:publish."}},{"@type":"Question","name":"Who receives an event?","acceptedAnswer":{"@type":"Answer","text":"Only clients whose role or API token may read that content through the REST API. Data is sanitized with Strapi's Content API sanitizer."}},{"@type":"Question","name":"Does it work on Railway or with pm2 cluster mode?","acceptedAnswer":{"@type":"Answer","text":"Yes, with the Postgres or Redis adapter and WebSocket-only transport, because Railway and pm2 have no sticky sessions."}}]}]}</script>
+</head>
+<body class="plugin-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar" data-reveal-skip>
+  <a class="wordmark" href="/" aria-label="Schero D., Home">Schero D.</a>
+  <nav class="nav" id="site-nav" aria-label="Main">
+    <ul>
+      <li><a href="/#what">What I do</a></li>
+      <li><a href="/plugins/" aria-current="page">Plugins</a></li>
+      <li><a href="/notes/">Notes</a></li>
+      <li><a href="https://github.com/Schero94" rel="me">GitHub</a></li>
+      <li class="nav-lang"><a href="/de/plugins/plugin-io/" hreflang="de" lang="de"><span aria-hidden="true">DE</span><span class="vh">Deutsch</span><span class="nav-lang-long" aria-hidden="true">Deutsch</span></a></li>
+    </ul>
+  </nav>
+  <div class="bar-tools">
+    <button type="button" class="theme-toggle" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor"/></svg></button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close" hidden><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+  </div>
+</header>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/plugins/">Plugins</a></li><li><span aria-current="page">plugin-io</span></li></ol></nav>
+<section class="p-hero" aria-labelledby="p-title">
+  <div class="p-head">
+    <h1 id="p-title" class="display-sm">plugin-io</h1>
+    <p class="lead">@strapi-community/plugin-io attaches a Socket.IO server to Strapi 5 and sends an event whenever a watched document is created, updated, published, unpublished, has its draft discarded or is deleted. Each client receives only what its role or API token may read through the REST API, sanitized with the same Content API sanitizer Strapi uses.</p>
+    <p class="role-note">The plugin lives in the Strapi community organization on GitHub. ComfortablyCoding started it; I maintain it and publish its releases on npm.</p>
+    
+    <div class="install"><p class="small muted" id="install-label">Install</p><div class="code-row"><pre aria-labelledby="install-label"><code>npm install @strapi-community/plugin-io</code></pre><button type="button" class="copy-btn" data-copy="npm install @strapi-community/plugin-io" data-done="Copied">Copy</button></div></div>
+  </div>
+  <div class="p-side">
+    <img src="/icons/plugin-io.svg" alt="plugin-io icon" width="160" height="160" class="icon-tile" loading="lazy" decoding="async">
+    <dl class="p-facts"><div><dt>Version</dt><dd>v6.0.0</dd></div><div><dt>Strapi</dt><dd>^5.38.0</dd></div><div><dt>Node.js</dt><dd>^22.21.0 || &gt;=24.9.0 &lt;=26.x.x</dd></div><div><dt>License</dt><dd>MIT, free</dd></div><div><dt>Released</dt><dd><time datetime="2026-11-07">7 November 2026</time></dd></div></dl>
+    <p class="small muted">Version, release date and ranges are read from the npm registry at build time.</p>
+  </div>
+</section>
+<section class="p-shots" aria-label="Screenshots">
+  <div class="strip-wrap">
+  <div class="strip" tabindex="0" role="region" aria-label="plugin-io: screenshots"><figure class="slide"><img src="/shots/plugin-io/monitoring-dark.webp" alt="Settings, Socket.IO, Monitoring in dark mode with connections and events" width="1280" height="883" decoding="async"></figure><figure class="slide"><img src="/shots/plugin-io/presence.webp" alt="Live presence panel in the Content Manager showing who edits an entry" width="1280" height="800" decoding="async"></figure><figure class="slide"><img src="/shots/plugin-io/settings.webp" alt="Socket.IO settings page in the Strapi admin" width="1280" height="800" loading="lazy" decoding="async"></figure><figure class="slide"><img src="/shots/plugin-io/monitoringSettings.webp" alt="Monitoring view with event totals" width="1280" height="800" loading="lazy" decoding="async"></figure></div>
+</div>
+  <p class="p-shots-ctl"><span class="strip-ctl"><button type="button" class="strip-btn" data-dir="-1" aria-label="Previous picture"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button><button type="button" class="strip-btn" data-dir="1" aria-label="Next picture"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button></span></p>
+</section>
+<section class="p-features" aria-labelledby="feat-title">
+  <h2 id="feat-title" class="h-sec">What it does</h2>
+  <ul class="feat-list"><li>Events for create, update, publish, unpublish, discard draft and delete, per watched content type.</li><li>Every client gets only what its role or API token may read, sanitized like the REST API.</li><li>Settings, Socket.IO in the admin with live monitoring, two homepage widgets and a live presence panel in the Content Manager.</li><li>Several processes act as one Socket.IO server with the Postgres adapter (LISTEN/NOTIFY) or the Redis adapter.</li><li>Users &amp; Permissions is optional. It is needed for user JWTs and the Public role room.</li></ul>
+</section>
+<section class="p-when" aria-label="Use it when">
+  <div><h2 class="h-sec">Use it when</h2><p>Frontends need to react to content changes in Strapi without polling.</p></div>
+  <div><h2 class="h-sec">Not for</h2><p>Several processes without an adapter. Then events stay on the process that produced them, and the plugin warns at boot.</p></div>
+  <div><h2 class="h-sec">What it needs</h2><p>Strapi 5.38 or later and Node.js 22.21+ or 24.9+. For several processes: @socket.io/postgres-adapter with pg, or @socket.io/redis-adapter with ioredis.</p></div>
+</section>
+<section class="faq" aria-labelledby="p-faq-title">
+  <h2 id="p-faq-title" class="h-sec">Questions</h2>
+  <div class="faq-text"><div class="qa"><h3>Which events does it send?</h3> <p>An event when a watched document is created, updated, published, unpublished, has its draft discarded or is deleted, for example article:publish.</p></div><div class="qa"><h3>Who receives an event?</h3> <p>Only clients whose role or API token may read that content through the REST API. Data is sanitized with Strapi's Content API sanitizer.</p></div><div class="qa"><h3>Does it work on Railway or with pm2 cluster mode?</h3> <p>Yes, with the Postgres or Redis adapter and WebSocket-only transport, because Railway and pm2 have no sticky sessions.</p></div></div>
+</section>
+<section class="p-docs" aria-labelledby="docs-title">
+  <h2 id="docs-title" class="h-sec">Full documentation</h2>
+  <ul class="doc-tiles"><li><a href="https://strapi-community.github.io/plugin-io/"><span>Documentation</span><span class="small muted">strapi-community.github.io/plugin-io/</span></a></li><li><a href="https://github.com/strapi-community/plugin-io"><span>Source on GitHub</span><span class="small muted">github.com/strapi-community/plugin-io</span></a></li><li><a href="https://www.npmjs.com/package/@strapi-community/plugin-io"><span>Package on npm</span><span class="small muted">www.npmjs.com/package/@strapi-community/plugin-io</span></a></li><li><a href="https://strapi-community.github.io/plugin-io/llms.txt"><span>llms.txt</span><span class="small muted">strapi-community.github.io/plugin-io/llms.txt</span></a></li></ul>
+</section>
+<section class="p-others" aria-labelledby="others-title">
+  <h2 id="others-title" class="h-sec">Other plugins</h2>
+  <ul class="other-tiles"><li><a href="/plugins/magic-link/"><img src="/icons/magic-link.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Link</span><span class="small muted">Passwordless login</span></a></li><li><a href="/plugins/magic-mail/"><img src="/icons/magic-mail.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Mail</span><span class="small muted">E-mail routing</span></a></li><li><a href="/plugins/magic-sessionmanager/"><img src="/icons/sessionmanager.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Session Manager</span><span class="small muted">Session management</span></a></li><li><a href="/plugins/magic-mark/"><img src="/icons/magic-mark.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Mark</span><span class="small muted">Content Manager bookmarks</span></a></li><li><a href="/plugins/auto-uuid/"><img src="/icons/auto-uuid.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Auto UUID</span><span class="small muted">UUID custom field</span></a></li><li><a href="/plugins/magic-messagegate/"><img src="/icons/messagegate.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic MessageGate</span><span class="small muted">WhatsApp, Telegram and SMS</span></a></li><li><a href="/plugins/magic-editor-x/"><img src="/icons/magic-editor-x.svg" alt="" width="56" height="56" class="icon-tile" loading="lazy" decoding="async"><span>Magic Editor X</span><span class="small muted">Block editor</span></a></li></ul>
+</section>
+</main>
+<footer class="foot" data-reveal-skip>
+  <div class="tile t-statement"><p class="foot-statement">Software, AI and product work from Berlin.</p><p class="small">© 2026 Schero D. · <a href="/privacy/">Privacy</a><br>Last updated: <time datetime="2026-11-12">12 November 2026</time></p></div>
+  <nav class="tile t-nav" aria-label="Pages"><ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/plugins/">Plugins</a></li>
+    <li><a href="/notes/">Notes</a></li>
+    <li><a href="/llms.txt">llms.txt</a></li>
+  </ul></nav>
+  <div class="tile t-time"><p>Berlin</p><p class="small">Local time <time class="local-time" data-tz="Europe/Berlin" data-lang="en">CET</time></p></div>
+  <div class="tile t-gh"><a class="tile-link" href="https://github.com/Schero94" rel="me"><span>GitHub</span><span class="small muted">Schero94</span></a><a class="small" href="https://www.npmjs.com/~schero94" rel="me">npm ~schero94</a></div>
+  <div class="tile t-word" aria-hidden="true"><span>Schero D.</span></div>
+  <a class="tile t-invite" href="https://github.com/Schero94" rel="me"><span>All projects on GitHub</span><svg viewBox="0 0 48 48" width="56" height="56" aria-hidden="true"><path d="M10 38 38 10M16 10h22v22" fill="none" stroke="currentColor" stroke-width="4"/></svg></a>
+</footer>
+</body>
+</html>
